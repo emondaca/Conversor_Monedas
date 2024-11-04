@@ -1,0 +1,45 @@
+hr {
+    color: rgb(8, 190, 245) ;
+}
+h1 {
+    font-size: xx-large;
+}
+#conversor {
+    width: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: black;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    padding: 20px 40px;
+}
+#calculadora {
+    width: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgb(132, 134, 138);
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding:20px;
+    border-radius: 10px;
+    font-size: large;
+}
+.input {
+    width: 220px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-size: large;
+}
+#convert-button {
+    background-color: rgb(8, 190, 245);
+    color: white;
+}
+#pesos-label {
+    font-size: x-large;
+}
