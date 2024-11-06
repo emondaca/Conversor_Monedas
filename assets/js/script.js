@@ -1,12 +1,11 @@
 let btnCalcular = document.querySelector("#convert-button");
 let resultado = document.querySelector("#resultado");
 resultado.innerHTML = `&hellip;`
-
+var myChart = "null";
 
 btnCalcular.addEventListener("click", () => {
     let monedaSelect = document.querySelector("#moneda-select");
     let moneda = monedaSelect.value;
-    console.log(moneda);
     realizarConversion(moneda);
     getDataAndCreateChart(moneda);      
 })
@@ -29,8 +28,8 @@ async function realizarConversion(mon) {
 }
 
 async function getDataAndCreateChart(mon) {
-    try {   
-        let myChart = document.querySelector("#myChart");
+    try {
+        let ctx = document.querySelector("#myChart");
         let lastMonth = await fetch("https://mindicador.cl/api/" + mon);
         let lastMonthJson = await lastMonth.json();
         let lastMonthSerie = lastMonthJson.serie;
@@ -47,11 +46,15 @@ async function getDataAndCreateChart(mon) {
             type: "line",
             data: fig
         };
-
-        myChart.style.backgroundColor = "white";
-        new Chart(myChart, config);
+      
+        ctx.style.backgroundColor = "white";
+        if (myChart != "null") {
+            myChart.destroy();
+        }
+        myChart = new Chart(ctx, config); 
 
     } catch (e) {
         alert(e.message);
     }   
 }
+
